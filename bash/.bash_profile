@@ -89,8 +89,14 @@ alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\
 
 #   showa: to remind yourself of an alias (given some part of it)
 #   ------------------------------------------------------------
-    showa () { /usr/bin/grep --color=always -i -a1 $@ ~/Library/init/bash/aliases.bash | grep -v '^\s*$' | less -FSRX ; }
+    showa () { alias | grep --color=always -i -A 2 $@ | grep -v '^\s*$' | less -FSRX ; }
 
+#   showf: to remind yourself of a function (given some part of it)
+#   ------------------------------------------------------------
+    showf () { declare -f | grep --color=always -i -A 2 $@ | grep -v '^\s*$' | less -FSRX ; }
+
+
+declare -f | grep --color=always -i show | less -FSRX
 
 #   -------------------------------
 #   3.  FILE AND FOLDER MANAGEMENT
