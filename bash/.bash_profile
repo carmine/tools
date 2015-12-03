@@ -96,8 +96,6 @@ alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\
     showf () { declare -f | grep --color=always -i -A 2 $@ | grep -v '^\s*$' | less -FSRX ; }
 
 
-declare -f | grep --color=always -i show | less -FSRX
-
 #   -------------------------------
 #   3.  FILE AND FOLDER MANAGEMENT
 #   -------------------------------
