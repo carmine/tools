@@ -265,9 +265,24 @@ httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grab
 #   -------------------------------------------------------------------
     httpDebug () { /usr/bin/curl $@ -o /dev/null -w "dns: %{time_namelookup} connect: %{time_connect} pretransfer: %{time_pretransfer} starttransfer: %{time_starttransfer} total: %{time_total}\n" ; }
 
+#   ---------------------------------------
+#   9.  DOCKER DEVELOPMENT
+#   ---------------------------------------
+
+alias d-psa='docker ps -a -q'
+alias d-rma='docker rm $(d-psa)'
+alias d-di='docker images -q --filter "dangling=true"'
+alias d-dir='d-di | xargs docker rmi'
+# dangling volume safe
+alias d-dvs='docker volume ls -qf dangling=true -f name="1|2|3|4|5|6|7|8|9|0"'
+alias d-dvr='docker volume rm $(d-dvs)'
+# dangling volume all, which includes volumes for any stopped/deleted container
+alias d-dva='docker volume ls -qf dangling=true'
+alias d-dvra='docker volume rm $(d-dva)'
+
 
 #   ---------------------------------------
-#   9.  REMINDERS & NOTES
+#   10.  REMINDERS & NOTES
 #   ---------------------------------------
 
 #   remove_disk: spin down unneeded disk
