@@ -269,16 +269,17 @@ httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grab
 #   9.  DOCKER DEVELOPMENT
 #   ---------------------------------------
 
-alias d-psa='docker ps -a -q'
-alias d-rma='docker rm $(d-psa)'
-alias d-di='docker images -q --filter "dangling=true"'
-alias d-dir='d-di | xargs docker rmi'
+alias dpsa='docker ps -a -q'
+alias drma='docker rm $(d-psa)'
+alias drme='docker ps -a | grep -i exited | cut -d " " -f 1 | xargs docker rm'
+alias ddi='docker images -q --filter "dangling=true"'
+alias ddir='d-di | xargs docker rmi'
 # dangling volume safe
-alias d-dvs='docker volume ls -qf dangling=true -f name="1|2|3|4|5|6|7|8|9|0"'
-alias d-dvr='docker volume rm $(d-dvs)'
+alias ddvs='docker volume ls -qf dangling=true -f name="1|2|3|4|5|6|7|8|9|0"'
+alias ddvr='docker volume rm $(d-dvs)'
 # dangling volume all, which includes volumes for any stopped/deleted container
-alias d-dva='docker volume ls -qf dangling=true'
-alias d-dvra='docker volume rm $(d-dva)'
+alias ddva='docker volume ls -qf dangling=true'
+alias ddvra='docker volume rm $(d-dva)'
 
 
 #   ---------------------------------------
