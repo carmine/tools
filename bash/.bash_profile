@@ -75,6 +75,7 @@ mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and ju
 trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
 alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
+alias set_gopath='launchctl setenv GOPATH ~/dev.go/'  # mac specific. set the global GOPATH so that any app can access it
 
 #   lr:  Full Recursive Directory Listing
 #   ------------------------------------------
