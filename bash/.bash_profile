@@ -270,6 +270,10 @@ httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grab
 #   9.  DOCKER DEVELOPMENT
 #   ---------------------------------------
 
+alias ddr='docker run'
+alias dde='docker exec'
+alias ddv='docker volume'
+alias ddc='docker-compose'
 alias dpsa='docker ps -a -q'
 alias drma='docker rm $(d-psa)'
 alias drme='docker ps -a | grep -i exited | cut -d " " -f 1 | xargs docker rm'
