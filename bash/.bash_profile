@@ -275,10 +275,10 @@ alias dde='docker exec'
 alias ddv='docker volume'
 alias ddc='docker-compose'
 alias dpsa='docker ps -a -q'
-alias drma='docker rm $(d-psa)'
+alias drma='docker rm $(dpsa)'
 alias drme='docker ps -a | grep -i exited | cut -d " " -f 1 | xargs docker rm'
 alias ddi='docker images -q --filter "dangling=true"'
-alias ddir='d-di | xargs docker rmi'
+alias ddir='ddi | xargs docker rmi'
 # dangling volume safe
 alias ddvs='docker volume ls -qf dangling=true -f name="1|2|3|4|5|6|7|8|9|0"'
 alias ddvr='docker volume rm $(d-dvs)'
@@ -286,9 +286,13 @@ alias ddvr='docker volume rm $(d-dvs)'
 alias ddva='docker volume ls -qf dangling=true'
 alias ddvra='docker volume rm $(d-dva)'
 
+#   ---------------------------------------
+#   10.  GO DEVELOPMENT
+#   ---------------------------------------
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 #   ---------------------------------------
-#   10.  REMINDERS & NOTES
+#   11.  REMINDERS & NOTES
 #   ---------------------------------------
 
 #   remove_disk: spin down unneeded disk
