@@ -1,6 +1,6 @@
 #  ---------------------------------------------------------------------------
 #
-#  Description:  This file holds all my BASH configurations and aliases
+#  Description:  This file holds all my ZSH configurations and aliases
 #
 #  Sections:
 #  1.   Environment Configuration
@@ -20,9 +20,9 @@
 #   -------------------------------
 
 #   Change Prompt
+#   https://scriptingosx.com/2019/07/moving-to-zsh-06-customizing-the-zsh-prompt/
 #   ------------------------------------------------------------
-    export PS1="________________________________________________________________________________\n| \w @ \h (\u) \n| => "
-    export PS2="| => "
+    export PROMPT='%(?.%F{green}√.%F{red}?%?)%f %B%F{240}%2~%f%b %# '
 
 #   Set Paths
 #   ------------------------------------------------------------
@@ -66,7 +66,7 @@ alias edit='subl'                           # edit:         Opens any file in su
 alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
 alias ~="cd ~"                              # ~:            Go Home
 alias c='clear'                             # c:            Clear terminal display
-alias which='type -all'                     # which:        Find executables
+alias which='type -a'                       # which:        Find executables
 alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
 alias show_options='shopt'                  # Show_options: display bash options settings
 alias fix_stty='stty sane'                  # fix_stty:     Restore terminal settings when screwed up
@@ -290,8 +290,6 @@ alias ddvra='docker volume rm $(d-dva)'
 #   ---------------------------------------
 #   10.  DEVELOPMENT
 #   ---------------------------------------
-export PATH=/usr/local/opt/go/libexec/bin:$PATH
-export PATH=/Users/carmine/Library/Python/3.6/bin:$PATH
 
 #   ---------------------------------------
 #   11.  REMINDERS & NOTES
@@ -327,5 +325,3 @@ export PATH=/Users/carmine/Library/Python/3.6/bin:$PATH
 # 12. Kilda Dev
 # ----------------
 scpkd1() { gcloud compute scp --zone us-east1-b $1 kilda-dev-1:~/dev/open-kilda/$1; }
-
-
